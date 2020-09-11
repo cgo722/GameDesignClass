@@ -1,0 +1,9 @@
+The Rules for the board game:
+
+Objective: The goal is to get to the end without dying. You have to use enemies to get over certain obstacles but dont let them knock you off of the platform.
+
+The player:
+Each turn the player can decide to move in any direction one space while walking (Horizontal, Vertical, Diagonal). 
+Running you can move two spaces in a horizontal and vertical momentum.
+
+Enemies:
