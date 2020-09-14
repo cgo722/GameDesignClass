@@ -3,7 +3,9 @@ The Rules for the board game:
 Objective: The goal is to get to the end without dying. You have to use enemies to get over certain obstacles but dont let them knock you off of the platform.
 
 The player:
-Each turn the player can decide to move in any direction one space while walking (Horizontal, Vertical, Diagonal). 
-Running you can move two spaces in a horizontal and vertical momentum.
+Each turn the player can decide to move in any direction one space while walking (Horizontal, Vertical, Diagnol). 
+Running you can move two spaces in a horizontal and vertical momentum. You cannot walk on to an enemy spawner square.
 
-Enemies:
+Enemies: Enemies move one square at a time (Horizontal, vertical). When an enemy moves onto your square you are blasted! You are forced to move three 
+squares in the opposite direction of the bombs movement. If you are playing 1p you move the nearest bomb one space closer to you. 2p one person is the player and the other player moves 
+the enemies. 
