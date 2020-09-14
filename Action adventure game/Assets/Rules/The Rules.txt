@@ -6,6 +6,6 @@ The player:
 Each turn the player can decide to move in any direction one space while walking (Horizontal, Vertical, Diagnol). 
 Running you can move two spaces in a horizontal and vertical momentum. You cannot walk on to an enemy spawner square.
 
-Enemies: Enemies move one square at a time (Horizontal, vertical). When an enemy moves onto your square you are blasted! You are forced to move three 
+Enemies: Enemies move one square at a time (Horizontal, vertical). When an enemy moves onto your square you are blasted! You are forced to move two 
 squares in the opposite direction of the bombs movement. If you are playing 1p you move the nearest bomb one space closer to you. 2p one person is the player and the other player moves 
 the enemies. 
