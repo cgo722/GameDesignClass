@@ -11,21 +11,22 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed;
     public float runRotateSpeed;
     public float jumpHeight;
+    public float explosionForce;
 
     private int jumpCountMax = 0;
 
     private Rigidbody rb;
 
 
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
     }
 
     void Update()
     {
+        
+
         var vInput = Input.GetAxis("Vertical");
         var hInput = Input.GetAxis("Horizontal");
         
@@ -49,16 +50,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        var explosionForce = 5000;
 
         if (collision.gameObject.CompareTag("Ground"))
         {
-            jumpCountMax = 0;            
+            jumpCountMax = 0;
+            rb.angularDrag = 1000f;
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            rb.AddForce(force * explosionForce, ForceMode.Impulse);
+            Vector3 direction = collision.transform.position - transform.position;
+
+            rb.AddForce(transform.up * explosionForce, ForceMode.Impulse);
+            rb.AddForce((-direction.normalized * 0.5f) * explosionForce, ForceMode.Impulse);
+
         }
     }
 
