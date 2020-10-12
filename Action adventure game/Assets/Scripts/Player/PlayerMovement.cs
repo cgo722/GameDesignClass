@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 direction = collision.transform.position - transform.position;
 
             rb.AddForce(transform.up * explosionForce, ForceMode.Impulse);
-            rb.AddForce((-direction.normalized * 0.5f) * explosionForce, ForceMode.Impulse);
+            rb.AddForce(-direction.normalized * explosionForce, ForceMode.Impulse);
 
         }
     }
