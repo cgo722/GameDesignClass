@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight;
     public float explosionForce;
 
+    private bool isGrounded;
+
     private int jumpCountMax = 0;
 
     private Rigidbody rb;
@@ -29,16 +31,22 @@ public class PlayerMovement : MonoBehaviour
 
         var vInput = Input.GetAxis("Vertical");
         var hInput = Input.GetAxis("Horizontal");
-        
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            transform.Translate(Vector3.forward * vInput * runSpeed * Time.deltaTime);
-            transform.Rotate(0, hInput * runRotateSpeed, 0);
+            if (isGrounded == true)
+            {
+                transform.Translate(Vector3.forward * vInput * runSpeed * Time.deltaTime);
+                transform.Rotate(0, hInput * runRotateSpeed, 0);
+            }
         }
         else
         {
-            transform.Translate(Vector3.forward * vInput * moveSpeed * Time.deltaTime);
-            transform.Rotate(0, hInput * rotateSpeed, 0);
+            if (isGrounded == true)
+            {
+                transform.Translate(Vector3.forward * vInput * moveSpeed * Time.deltaTime);
+                transform.Rotate(0, hInput * rotateSpeed, 0);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpCountMax < 2)
@@ -53,9 +61,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Ground"))
         {
+            isGrounded = true;
             jumpCountMax = 0;
             rb.angularDrag = 1000f;
         }
+        else { isGrounded = false; }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
