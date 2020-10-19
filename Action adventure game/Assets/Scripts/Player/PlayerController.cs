@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerController: MonoBehaviour
 {
 
     public float moveSpeed;
@@ -20,9 +21,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
 
 
+    public BoolData dead;
+    public Vector3Data spawnVector3;
+
+    public GameObject player;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        dead.value = false;
     }
 
     void Update()
@@ -56,16 +62,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private IEnumerator DeathAndRespawn()
+    {
+        Destroy(gameObject);
+        Debug.Log("I LIVE!!!");
+        Instantiate(player, spawnVector3.value, Quaternion.identity);
+        yield return new WaitForFixedUpdate();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") && dead.value == false)
         {
             isGrounded = true;
             jumpCountMax = 0;
             rb.angularDrag = 1000f;
-        }
-        else { isGrounded = false; }
+        }else { isGrounded = false; }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -77,4 +90,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Respawn"))
+        {
+            
+        }
+
+        if (other.gameObject.CompareTag("Death"))
+        {
+            dead.value = true;
+            StartCoroutine(DeathAndRespawn());
+        }
+    }
 }

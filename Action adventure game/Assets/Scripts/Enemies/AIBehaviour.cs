@@ -9,6 +9,7 @@ public class AIBehaviour : MonoBehaviour
     public Transform player;
     private WaitForFixedUpdate wffu;
     private WaitForSeconds wfs;
+    public BoolData playerDead;
 
     private void Start()
     {
@@ -18,7 +19,9 @@ public class AIBehaviour : MonoBehaviour
 
     private void Update()
     {
-        agent.destination = player.position;
-        
+        if (playerDead.value == false)
+        {
+            agent.destination = player.position;
+        }
     }
 }

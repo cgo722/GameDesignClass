@@ -126,8 +126,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rotateSpeed: 3
+  rotateSpeed: 2
   runSpeed: 10
   runRotateSpeed: 0.5
   jumpHeight: 2
   explosionForce: 10
+  dead: {fileID: 11400000, guid: ca82f77ffa1b88f4f9d7c6898c9c1d23, type: 2}
+  spawnVector3: {fileID: 11400000, guid: 636ef8c42dfe9334eb41dac252545e3b, type: 2}
+  player: {fileID: 3364048979048817688}
