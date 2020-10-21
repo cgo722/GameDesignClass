@@ -29,7 +29,9 @@ public class PlayerController: MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         dead.value = false;
+        spawnVector3.value = player.transform.position;
     }
+
 
     void Update()
     {
@@ -64,16 +66,18 @@ public class PlayerController: MonoBehaviour
 
     private IEnumerator DeathAndRespawn()
     {
-        Destroy(gameObject);
-        Debug.Log("I LIVE!!!");
-        Instantiate(player, spawnVector3.value, Quaternion.identity);
-        yield return new WaitForFixedUpdate();
+        yield return new WaitForSeconds(1f);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        gameObject.transform.position = spawnVector3.value;
+        isGrounded = true;
+        dead.value = false;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.CompareTag("Ground") && dead.value == false)
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
             jumpCountMax = 0;
@@ -92,11 +96,6 @@ public class PlayerController: MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Respawn"))
-        {
-            
-        }
-
         if (other.gameObject.CompareTag("Death"))
         {
             dead.value = true;

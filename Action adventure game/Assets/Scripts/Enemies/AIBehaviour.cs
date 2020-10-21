@@ -19,9 +19,9 @@ public class AIBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (playerDead.value == false)
-        {
-            agent.destination = player.position;
-        }
+       if (playerDead.value == false)
+       {
+             agent.destination = player.position;
+       }
     }
 }

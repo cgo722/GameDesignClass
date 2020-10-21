@@ -4,8 +4,13 @@ public class SpawnPoint : MonoBehaviour
 {
     public Vector3Data spawn;
 
-    private void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        spawn.value = transform.position;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            spawn.value = transform.position;
+        }
     }
+
+    
 }
