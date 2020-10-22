@@ -14,7 +14,7 @@ public class PlayerController: MonoBehaviour
     public float jumpHeight;
     public float explosionForce;
 
-    private bool isGrounded;
+    public bool isGrounded;
 
     private int jumpCountMax = 0;
 
