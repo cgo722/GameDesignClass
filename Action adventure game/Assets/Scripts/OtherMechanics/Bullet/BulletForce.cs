@@ -9,7 +9,7 @@ public class BulletForce : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        var forceDirection = new Vector3(force, 0, 0);
+        var forceDirection = new Vector3(0, 0, force);
         rb.AddRelativeForce(forceDirection);
     }
 }

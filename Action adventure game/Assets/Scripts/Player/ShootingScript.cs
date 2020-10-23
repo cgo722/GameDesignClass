@@ -6,6 +6,8 @@ public class ShootingScript : MonoBehaviour
     public GameObject prefab;
     public Vector3Data firePoint;
 
+
+
     private void Update()
     {
         firePoint.value = transform.position;
@@ -19,6 +21,5 @@ public class ShootingScript : MonoBehaviour
         {
             Instantiate(prefab, location, transform.rotation);
         }
-        
     }
 }
