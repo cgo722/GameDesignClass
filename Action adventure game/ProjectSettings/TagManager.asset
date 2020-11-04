@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Enemy
   - Death
+  - SpiderWeb
+  - StationaryEnemy
   layers:
   - Default
   - TransparentFX

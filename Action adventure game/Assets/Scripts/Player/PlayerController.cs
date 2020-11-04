@@ -7,12 +7,7 @@ using UnityEngine;
 public class PlayerController: MonoBehaviour
 {
 
-    public float moveSpeed;
-    public float rotateSpeed;
-    public float runSpeed;
-    public float runRotateSpeed;
-    public float jumpHeight;
-    public float explosionForce;
+    public float moveSpeed, rotateSpeed, runSpeed, runRotateSpeed, jumpHeight, explosionForce, stationaryExplosionForce, webForce;
 
     public bool isGrounded;
 
@@ -91,6 +86,21 @@ public class PlayerController: MonoBehaviour
             rb.AddForce(transform.up * explosionForce, ForceMode.Impulse);
             rb.AddForce(-direction.normalized * explosionForce, ForceMode.Impulse);
 
+        }
+
+        if (collision.gameObject.CompareTag("StationaryEnemy"))
+        {
+            Vector3 direction = collision.transform.position - transform.position;
+
+            rb.AddForce(transform.up * stationaryExplosionForce, ForceMode.Impulse);
+            rb.AddForce(-direction.normalized * stationaryExplosionForce, ForceMode.Impulse);
+
+        }
+
+        if (collision.gameObject.CompareTag("SpiderWeb"))
+        {
+            isGrounded = true;
+            rb.AddForce(transform.up * webForce, ForceMode.Impulse);
         }
     }
 
