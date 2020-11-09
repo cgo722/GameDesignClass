@@ -26,6 +26,9 @@ public class EnemySpawner : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(SpawnEnemy());
+        if (other.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(SpawnEnemy());
+        }
     }
 }

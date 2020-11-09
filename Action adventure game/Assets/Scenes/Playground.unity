@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 29eb50a8ed4dbe245b9e0e7006242a3d, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 865b4a06f934f62409d0dba6af05ceb5, type: 2}
 --- !u!4 &28585508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3364048979048817670, guid: 78c030ac095f7b24faa9099804186a43, type: 3}
