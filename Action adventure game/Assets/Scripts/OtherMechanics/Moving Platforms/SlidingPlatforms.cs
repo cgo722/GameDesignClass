@@ -5,8 +5,8 @@ public class SlidingPlatforms : MonoBehaviour
     public Vector3 position1;
     public Vector3 position2;
 
-    public float speed;
-    public float holdTime;
+    public float speed = 1f;
+    public float holdTime = 1f;
 
     private void Update()
     {
