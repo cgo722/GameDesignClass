@@ -54,6 +54,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -130,10 +131,11 @@ MonoBehaviour:
   runSpeed: 10
   runRotateSpeed: 0.5
   jumpHeight: 3
-  explosionForce: 10000
+  explosionForce: 50000
   stationaryExplosionForce: 0
   webForce: 0
   isGrounded: 1
+  location: {fileID: 11400000, guid: 428a9d842c1c8de4086d0cdb31beb118, type: 2}
   dead: {fileID: 11400000, guid: ca82f77ffa1b88f4f9d7c6898c9c1d23, type: 2}
   spawnVector3: {fileID: 11400000, guid: 636ef8c42dfe9334eb41dac252545e3b, type: 2}
   player: {fileID: 3364048979048817688}

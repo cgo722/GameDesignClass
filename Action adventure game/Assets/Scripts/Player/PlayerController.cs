@@ -15,6 +15,7 @@ public class PlayerController: MonoBehaviour
 
     private Rigidbody rb;
 
+    public Vector3Data location;
 
     public BoolData dead;
     public Vector3Data spawnVector3;
@@ -30,7 +31,7 @@ public class PlayerController: MonoBehaviour
 
     void Update()
     {
-        
+        location.value = transform.position;
 
         var vInput = Input.GetAxis("Vertical");
         var hInput = Input.GetAxis("Horizontal");
@@ -83,8 +84,8 @@ public class PlayerController: MonoBehaviour
         {
             Vector3 direction = collision.transform.position - transform.position;
 
-            rb.AddForce(transform.up * explosionForce, ForceMode.Impulse);
-            rb.AddForce(-direction.normalized * explosionForce, ForceMode.Impulse);
+            rb.AddForce((transform.up) * explosionForce, ForceMode.Impulse);
+            rb.AddForce((-direction.normalized* 0.5f) * explosionForce, ForceMode.Impulse);
 
         }
 

@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private IEnumerator SpawnEnemy()
     {
-        if (enemyCount.value < 6)
+        while (enemyCount.value < 6)
         {
             yield return wfs;
             Instantiate(enemy, transform.position, Quaternion.identity);
@@ -26,9 +26,15 @@ public class EnemySpawner : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(SpawnEnemy());
         }
+    }
+
+    private void ontriggerexit(Collider other)
+    {
+        StopCoroutine(SpawnEnemy());
     }
 }
