@@ -18,6 +18,8 @@ public class PlayerController: MonoBehaviour
     public Vector3Data location;
 
     public BoolData dead;
+    public BoolData playerProjectile;
+
     public Vector3Data spawnVector3;
 
     public GameObject player;
@@ -78,6 +80,7 @@ public class PlayerController: MonoBehaviour
             isGrounded = true;
             jumpCountMax = 0;
             rb.angularDrag = 1000f;
+            playerProjectile.value = false;
         }else { isGrounded = false; }
 
         if (collision.gameObject.CompareTag("Enemy"))
@@ -86,7 +89,7 @@ public class PlayerController: MonoBehaviour
 
             rb.AddForce((transform.up) * explosionForce, ForceMode.Impulse);
             rb.AddForce((-direction.normalized* 0.5f) * explosionForce, ForceMode.Impulse);
-
+            playerProjectile.value = true;
         }
 
         if (collision.gameObject.CompareTag("StationaryEnemy"))

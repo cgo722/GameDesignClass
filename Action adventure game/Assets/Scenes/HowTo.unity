@@ -149,7 +149,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21123475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.9}
+  m_LocalPosition: {x: 0, y: 0, z: 88.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2100612286}
@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 3632.88, y: 1761}
+  m_AnchoredPosition: {x: 0, y: -353.32}
+  m_SizeDelta: {x: 1864.4, y: 1761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &21123477
 MonoBehaviour:
@@ -182,11 +182,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_FontSize: 53
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 100
+    m_MaxSize: 102
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -213,7 +213,9 @@ MonoBehaviour:
     Space Bar to do a small
     jump
 
-    ESC to pause the game and leave'
+    ESC to pause the game and leave
+
+    Left Shift can be used to sprint'
 --- !u!222 &21123478
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -449,7 +451,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 30
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -610,8 +612,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1405, y: -915}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -663.1, y: -413.6}
+  m_SizeDelta: {x: 87.7, y: 26.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1757361514
 MonoBehaviour:
@@ -799,9 +801,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1969493660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e658ab9d409694eaae7b089c232847, type: 3}
+  m_Script: {fileID: 11500000, guid: 4582cf32e7a7ac742898b9ad57a472bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: {fileID: 2100612282}
 --- !u!4 &1969493662
 Transform:
   m_ObjectHideFlags: 0
@@ -864,10 +867,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1901.2, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -886,7 +889,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1191414866}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 5
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
