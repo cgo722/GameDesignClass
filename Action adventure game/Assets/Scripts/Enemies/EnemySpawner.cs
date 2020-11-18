@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
     private WaitForSeconds wfs;
 
     public IntData enemyCount;
+
+    public bool canSpawn = true;
     private void Start()
     {
         enemyCount.value = 0;
@@ -17,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private IEnumerator SpawnEnemy()
     {
-        while (enemyCount.value < 6)
+        while (enemyCount.value < 6 && canSpawn == true)
         {
             yield return wfs;
             Instantiate(enemy, transform.position, Quaternion.identity);
@@ -26,15 +28,17 @@ public class EnemySpawner : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.gameObject.CompareTag("Player"))
         {
+            canSpawn = true;
+            Instantiate(enemy, transform.position, Quaternion.identity);
             StartCoroutine(SpawnEnemy());
         }
     }
 
-    private void ontriggerexit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        StopCoroutine(SpawnEnemy());
+
+        canSpawn = false;
     }
 }

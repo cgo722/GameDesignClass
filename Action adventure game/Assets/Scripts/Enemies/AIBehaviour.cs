@@ -6,10 +6,9 @@ using UnityEngine.AI;
 public class AIBehaviour : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public Transform player;
-    public float waitTime;
+    public float chaseTime, stopTime;
     private WaitForFixedUpdate wffu;
-    private WaitForSeconds wfs;
+    private WaitForSeconds wfs1, wfs2;
     public BoolData playerDead;
 
     public IntData enemyCount;
@@ -19,18 +18,17 @@ public class AIBehaviour : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        wfs = new WaitForSeconds(waitTime);
+        wfs1 = new WaitForSeconds(chaseTime);
+        wfs2 = new WaitForSeconds(stopTime);
         agent.isStopped = false;
+        StartCoroutine(Chasing());
     }
 
     private void Update()
     {
-       if (playerDead.value == false && agent.isStopped == false)
-       {
-             agent.destination = playerLocation.value;
-       }
+        agent.destination = playerLocation.value;
 
-       if(playerDead.value == false && agent.isStopped == true)
+        if (playerDead.value == false && agent.isStopped == true)
         {
             StartCoroutine(Destroy());
         }
@@ -38,12 +36,16 @@ public class AIBehaviour : MonoBehaviour
 
     private IEnumerator Chasing()
     {
-        yield return wfs;
-        agent.isStopped = true;
+        while (playerDead.value == false && agent.isStopped == false)
+        {
+            yield return wfs1;
+            agent.isStopped = true;
+        }
     }
     private IEnumerator Destroy()
     {
-        yield return wfs;
+        Debug.Log(agent.isStopped);
+        yield return wfs2;
         Destroy(gameObject);
         enemyCount.value--;
     }

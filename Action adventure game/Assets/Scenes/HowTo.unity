@@ -198,7 +198,9 @@ MonoBehaviour:
     You are trying to get to the top of the mountain. You have
     some limited movement so have to use the enemies to move vertically. Be careful
     though the enemies can knock you off and kill you. There are multiple ways to
-    get to the top so explore around!
+    get to the top so explore around! Enemies (red) will spawn in different hidden
+    locations. There are also yellow enemies they will not give chase but you can
+    still use them to jump.
 
 
     Controls:
@@ -209,7 +211,9 @@ MonoBehaviour:
     D to rotate your character to move side to side
 
     Space Bar to do a small
-    jump'
+    jump
+
+    ESC to pause the game and leave'
 --- !u!222 &21123478
 CanvasRenderer:
   m_ObjectHideFlags: 0
