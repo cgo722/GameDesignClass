@@ -62,6 +62,11 @@ public class PlayerController: MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+    }
+
     private IEnumerator DeathAndRespawn()
     {
         yield return new WaitForSeconds(1f);
