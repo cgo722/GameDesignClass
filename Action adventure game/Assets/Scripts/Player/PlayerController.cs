@@ -23,6 +23,7 @@ public class PlayerController: MonoBehaviour
     public Vector3Data spawnVector3;
 
     public GameObject player;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();

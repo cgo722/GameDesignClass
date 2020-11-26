@@ -5,31 +5,20 @@ using UnityEngine;
 public class StickToPlatform : MonoBehaviour
 {
     public GameObject player;
-    public Vector3 offset;
-
-    public float waitTime;
-    private WaitForSeconds wfs;
-
-    private void Start()
-    {
-        wfs = new WaitForSeconds(waitTime);
-    }
-
-    private IEnumerator StickToGround()
-    {
-        offset = player.transform.position - transform.position;
-        player.transform.position = transform.position + offset;
-        yield return wfs;
-    } 
+    public Vector3 playerScale;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(StickToGround());
+            player.transform.parent = gameObject.transform;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        StopCoroutine(StickToGround());
+        if (other.gameObject.CompareTag("Player"))
+        { 
+            player.transform.parent = null;
+        }
     }
 }
