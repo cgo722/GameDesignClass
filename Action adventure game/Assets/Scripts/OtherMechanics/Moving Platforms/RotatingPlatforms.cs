@@ -12,5 +12,6 @@ public class RotatingPlatforms : MonoBehaviour
     {
         var t = Mathf.PingPong(Time.time * speed, holdTime);
         transform.rotation = Quaternion.Slerp(position1.rotation, position2.rotation, t);
+        transform.position = Vector3.Lerp(position1.position, position2.position, t);
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController: MonoBehaviour
 {
 
-    public float moveSpeed, rotateSpeed, runSpeed, runRotateSpeed, jumpHeight, explosionForce, stationaryExplosionForce, webForce;
+    public float moveSpeed, rotateSpeed, runSpeed, runRotateSpeed, jumpHeight, explosionForce, stationaryExplosionForce, webForce, multiplyer, multiplyer2;
 
     public bool isGrounded;
 
@@ -104,6 +104,24 @@ public class PlayerController: MonoBehaviour
 
             rb.AddForce(transform.up * stationaryExplosionForce, ForceMode.Impulse);
             rb.AddForce(-direction.normalized * stationaryExplosionForce, ForceMode.Impulse);
+
+        }
+
+        if (collision.gameObject.CompareTag("StationaryEnemy2"))
+        {
+            Vector3 direction = collision.transform.position - transform.position;
+
+            rb.AddForce(transform.up * (stationaryExplosionForce * multiplyer), ForceMode.Impulse);
+            rb.AddForce(-direction.normalized * stationaryExplosionForce, ForceMode.Impulse);
+
+        }
+
+        if (collision.gameObject.CompareTag("StationaryEnemy3"))
+        {
+            Vector3 direction = collision.transform.position - transform.position;
+
+            rb.AddForce(transform.up * (stationaryExplosionForce * multiplyer2), ForceMode.Impulse);
+            rb.AddForce(-direction.normalized * (stationaryExplosionForce * multiplyer2), ForceMode.Impulse);
 
         }
 
