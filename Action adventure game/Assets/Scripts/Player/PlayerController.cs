@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController: MonoBehaviour
 {
 
-    public float moveSpeed, rotateSpeed, runSpeed, runRotateSpeed, jumpHeight, explosionForce, stationaryExplosionForce, webForce, multiplyer, multiplyer2;
+    public float moveSpeed, rotateSpeed, runSpeed, runRotateSpeed, jumpHeight, explosionForce, stationaryExplosionForce, webForce, multiplyer, multiplyer2, multiplyer3;
 
     public bool isGrounded;
 
@@ -102,8 +102,8 @@ public class PlayerController: MonoBehaviour
         {
             Vector3 direction = collision.transform.position - transform.position;
 
-            rb.AddForce(transform.up * stationaryExplosionForce, ForceMode.Impulse);
-            rb.AddForce(-direction.normalized * stationaryExplosionForce, ForceMode.Impulse);
+            rb.AddForce(transform.up * stationaryExplosionForce * multiplyer3, ForceMode.Impulse);
+            rb.AddForce(-direction.normalized * stationaryExplosionForce * multiplyer3, ForceMode.Impulse);
 
         }
 
