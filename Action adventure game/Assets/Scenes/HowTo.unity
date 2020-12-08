@@ -195,27 +195,28 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'How To:
 
-    You are trying to get to the top of the mountain. You have
-    some limited movement so have to use the enemies to move vertically. Be careful
-    though the enemies can knock you off and kill you. There are multiple ways to
-    get to the top so explore around! Enemies (red) will spawn in different hidden
-    locations. There are also yellow enemies they will not give chase but you can
-    still use them to jump.
+    You are trying to get into the temple at the top of the mountain.
+    Your journey will be tough and exhausting but you will see many great views.
+    The enemies are over ecstatic bombs that are excited to see you. If they touch
+    you they will explode. You can use their explosions to jump really high but be
+    careful they can knock you off and you may die a few times. Go have an adventure
+    and see where the world will take you! Good luck!
 
 
     Controls:
 
-    W, S to move your character
+    W, S to
+    move your character
 
-    A,
-    D to rotate your character to move side to side
+    A, D to rotate your character to move side to side
 
-    Space Bar to do a small
-    jump
+    Space
+    Bar to do a small jump
 
     ESC to pause the game and leave
 
-    Left Shift can be used to sprint'
+    Left Shift can
+    be used to sprint'
 --- !u!222 &21123478
 CanvasRenderer:
   m_ObjectHideFlags: 0
