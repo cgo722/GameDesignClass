@@ -44,7 +44,6 @@ public class AIBehaviour : MonoBehaviour
     }
     private IEnumerator Destroy()
     {
-        Debug.Log(agent.isStopped);
         yield return wfs2;
         Destroy(gameObject);
         enemyCount.value--;
